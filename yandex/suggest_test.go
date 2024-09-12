@@ -13,7 +13,7 @@ var tokenSuggest = os.Getenv("YANDEX_SUGGEST_API_KEY")
 func TestYandexGeoSuggest(t *testing.T) {
 	ts := testServer(responseSugFound)
 	defer ts.Close()
-	suggest := yandex.Geosuggest(tokenSuggest, "3", "en_US", "geo", ts.URL+"/")
+	suggest := yandex.Geosuggest(tokenSuggest, ts.URL+"/")
 	addresses, err := suggest.Suggest("Burj")
 	assert.NoError(t, err)
 	assert.True(t, len(*addresses) > 0)
@@ -25,7 +25,7 @@ func TestYandexGeoSuggest(t *testing.T) {
 func TestYandexGeoSuggestNoResult(t *testing.T) {
 	ts := testServer(responseSugNotFound)
 	defer ts.Close()
-	suggest := yandex.Geosuggest(tokenSuggest, "3", "en_US", "geo", ts.URL+"/")
+	suggest := yandex.Geosuggest(tokenSuggest, ts.URL+"/")
 	addresses, err := suggest.Suggest("$@#@")
 	assert.Nil(t, err)
 	assert.Nil(t, addresses)
