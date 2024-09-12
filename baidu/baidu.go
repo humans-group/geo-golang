@@ -2,7 +2,7 @@ package baidu
 
 import (
 	"fmt"
-	"github.com/codingsince1985/geo-golang"
+	"github.com/humans-group/geo-golang"
 	"strings"
 )
 

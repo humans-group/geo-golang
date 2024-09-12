@@ -10,8 +10,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/codingsince1985/geo-golang"
-	"github.com/codingsince1985/geo-golang/here/search"
+	"github.com/humans-group/geo-golang"
+	"github.com/humans-group/geo-golang/here/search"
 )
 
 var apiKey = os.Getenv("HERE_API_KEY")

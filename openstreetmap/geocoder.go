@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/codingsince1985/geo-golang"
-	"github.com/codingsince1985/geo-golang/osm"
+	"github.com/humans-group/geo-golang"
+	"github.com/humans-group/geo-golang/osm"
 )
 
 type (
@@ -70,3 +70,4 @@ func (r *geocodeResponse) Address() (*geo.Address, error) {
 		CountryCode:      strings.ToUpper(r.Addr.CountryCode),
 	}, nil
 }
+

@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"net/http/httptest"
 
-	"github.com/codingsince1985/geo-golang"
-	"github.com/codingsince1985/geo-golang/frenchapigouv"
+	"github.com/humans-group/geo-golang"
+	"github.com/humans-group/geo-golang/frenchapigouv"
 	"github.com/stretchr/testify/assert"
 )
 
