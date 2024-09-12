@@ -3,7 +3,7 @@ package cached
 import (
 	"fmt"
 
-	"github.com/codingsince1985/geo-golang"
+	"github.com/humans-group/geo-golang"
 	"github.com/patrickmn/go-cache"
 )
 

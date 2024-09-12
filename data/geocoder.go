@@ -1,7 +1,7 @@
 package data
 
 import (
-	"github.com/codingsince1985/geo-golang"
+	"github.com/humans-group/geo-golang"
 )
 
 // AddressToLocation maps address string to location (lat, long)

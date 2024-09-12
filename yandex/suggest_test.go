@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/codingsince1985/geo-golang/yandex"
+	"github.com/humans-group/geo-golang/yandex"
 	"github.com/stretchr/testify/assert"
 )
 

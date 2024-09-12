@@ -1,10 +1,11 @@
-module github.com/codingsince1985/geo-golang
+module github.com/humans-group/geo-golang
 
 go 1.19
 
 require (
+	github.com/codingsince1985/geo-golang v1.8.4
 	github.com/patrickmn/go-cache v2.1.0+incompatible
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.9.0
 )
 
 require (

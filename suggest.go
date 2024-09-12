@@ -16,7 +16,7 @@ type SuggestResponseParser interface {
     Addresses() (*Addresses, error)
 }
 
-// HTTPGeocoder has EndpointBuilder and ResponseParser
+// HTTPGeosuggest has EndpointBuilderSuggest and SuggestResponseParserFactory
 type HTTPGeosuggest struct {
 	EndpointBuilderSuggest
 	SuggestResponseParserFactory
