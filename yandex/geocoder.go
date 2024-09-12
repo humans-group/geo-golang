@@ -57,6 +57,7 @@ type (
 			} `json:"Point"`
 		} `json:"GeoObject"`
 	}
+	
 )
 
 const (
@@ -85,6 +86,10 @@ func getURL(apiKey string, baseURLs ...string) string {
 
 func (b baseURL) GeocodeURL(address string) string {
 	return string(b) + "geocode=" + address
+}
+
+func (b baseURL) GeosuggestURL(address string) string {
+	return string(b) + "&text=" + address
 }
 
 func (b baseURL) ReverseGeocodeURL(l geo.Location) string {

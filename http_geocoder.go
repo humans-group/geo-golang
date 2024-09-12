@@ -10,6 +10,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"fmt"
 )
 
 // DefaultTimeout for the request execution
@@ -95,14 +96,12 @@ func (g HTTPGeocoder) ReverseGeocode(lat, lng float64) (*Address, error) {
 				e: err,
 			}
 		}
-
 		addr, err := responseParser.Address()
 		ch <- revResp{
 			a: addr,
 			e: err,
 		}
 	}(ch)
-
 	select {
 	case <-ctx.Done():
 		return nil, ErrTimeout
@@ -112,7 +111,7 @@ func (g HTTPGeocoder) ReverseGeocode(lat, lng float64) (*Address, error) {
 }
 
 // Response gets response from url
-func response(ctx context.Context, url string, obj ResponseParser) error {
+func response(ctx context.Context, url string, obj interface{}) error {
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return err
@@ -131,6 +130,10 @@ func response(ctx context.Context, url string, obj ResponseParser) error {
 	}
 
 	body := strings.Trim(string(data), " []")
+	if resp.StatusCode!= http.StatusOK {
+        ErrLogger.Printf("Received status code %d: %s\n", resp.StatusCode, body)
+        return fmt.Errorf("received status code %d", resp.StatusCode)
+    }
 	DebugLogger.Printf("Received response: %s\n", body)
 	if body == "" {
 		return nil

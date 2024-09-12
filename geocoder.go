@@ -12,6 +12,11 @@ type Geocoder interface {
 	ReverseGeocode(lat, lng float64) (*Address, error)
 }
 
+// Geosuggest prints addresses that satisfied mask
+type Geosuggest interface {
+	Suggest(text string) (*Addresses, error)
+}
+
 // Location is the output of Geocode
 type Location struct {
 	Lat, Lng float64
@@ -33,6 +38,8 @@ type Address struct {
 	CountryCode      string
 	City             string
 }
+
+type Addresses []Address
 
 // ErrLogger is an implementation of StdLogger that geo uses to log its error messages.
 var ErrLogger StdLogger = log.New(io.Discard, "[Geo][Err]", log.LstdFlags)
